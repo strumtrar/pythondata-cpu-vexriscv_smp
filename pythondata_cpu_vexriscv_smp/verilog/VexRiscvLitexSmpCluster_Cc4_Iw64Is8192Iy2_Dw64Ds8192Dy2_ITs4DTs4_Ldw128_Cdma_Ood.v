@@ -15650,51 +15650,51 @@ module BmbExclusiveMonitor (
   assign _zz_101 = (io_input_cmd_payload_fragment_address >>> 12);
   assign _zz_102 = (_zz_33 >>> 12);
   assign _zz_103 = (io_input_cmd_payload_fragment_address >>> 12);
-  assign _zz_104 = _zz_57[6];
-  assign _zz_105 = _zz_58[6];
-  assign _zz_106 = _zz_57[5 : 0];
-  assign _zz_107 = _zz_58[5 : 0];
+  assign _zz_104 = _zz_53[6];
+  assign _zz_105 = _zz_54[6];
+  assign _zz_106 = _zz_53[5 : 0];
+  assign _zz_107 = _zz_54[5 : 0];
   assign _zz_108 = (_zz_41[6] != _zz_42[6]);
   assign _zz_109 = (_zz_41[5 : 0] == _zz_42[5 : 0]);
-  assign _zz_110 = (_zz_53[6] != _zz_54[6]);
-  assign _zz_111 = (_zz_53[5 : 0] == _zz_54[5 : 0]);
+  assign _zz_110 = (_zz_49[6] != _zz_50[6]);
+  assign _zz_111 = (_zz_49[5 : 0] == _zz_50[5 : 0]);
   StreamArbiter_1 exclusiveReadArbiter (
-    .io_inputs_0_valid                         (_zz_40                                                         ), //i
+    .io_inputs_0_valid                         (_zz_10                                                         ), //i
     .io_inputs_0_ready                         (exclusiveReadArbiter_io_inputs_0_ready                         ), //o
     .io_inputs_0_payload_last                  (_zz_64                                                         ), //i
     .io_inputs_0_payload_fragment_source       (_zz_65[2:0]                                                    ), //i
     .io_inputs_0_payload_fragment_opcode       (_zz_66                                                         ), //i
     .io_inputs_0_payload_fragment_exclusive    (_zz_67                                                         ), //i
-    .io_inputs_0_payload_fragment_address      (_zz_33[31:0]                                                   ), //i
-    .io_inputs_0_payload_fragment_length       (_zz_34[5:0]                                                    ), //i
-    .io_inputs_0_payload_fragment_context      (_zz_35[3:0]                                                    ), //i
-    .io_inputs_1_valid                         (_zz_10                                                         ), //i
+    .io_inputs_0_payload_fragment_address      (_zz_3[31:0]                                                    ), //i
+    .io_inputs_0_payload_fragment_length       (_zz_4[5:0]                                                     ), //i
+    .io_inputs_0_payload_fragment_context      (_zz_5[3:0]                                                     ), //i
+    .io_inputs_1_valid                         (_zz_40                                                         ), //i
     .io_inputs_1_ready                         (exclusiveReadArbiter_io_inputs_1_ready                         ), //o
     .io_inputs_1_payload_last                  (_zz_68                                                         ), //i
     .io_inputs_1_payload_fragment_source       (_zz_69[2:0]                                                    ), //i
     .io_inputs_1_payload_fragment_opcode       (_zz_70                                                         ), //i
     .io_inputs_1_payload_fragment_exclusive    (_zz_71                                                         ), //i
-    .io_inputs_1_payload_fragment_address      (_zz_3[31:0]                                                    ), //i
-    .io_inputs_1_payload_fragment_length       (_zz_4[5:0]                                                     ), //i
-    .io_inputs_1_payload_fragment_context      (_zz_5[3:0]                                                     ), //i
-    .io_inputs_2_valid                         (_zz_20                                                         ), //i
+    .io_inputs_1_payload_fragment_address      (_zz_33[31:0]                                                   ), //i
+    .io_inputs_1_payload_fragment_length       (_zz_34[5:0]                                                    ), //i
+    .io_inputs_1_payload_fragment_context      (_zz_35[3:0]                                                    ), //i
+    .io_inputs_2_valid                         (_zz_30                                                         ), //i
     .io_inputs_2_ready                         (exclusiveReadArbiter_io_inputs_2_ready                         ), //o
     .io_inputs_2_payload_last                  (_zz_72                                                         ), //i
     .io_inputs_2_payload_fragment_source       (_zz_73[2:0]                                                    ), //i
     .io_inputs_2_payload_fragment_opcode       (_zz_74                                                         ), //i
     .io_inputs_2_payload_fragment_exclusive    (_zz_75                                                         ), //i
-    .io_inputs_2_payload_fragment_address      (_zz_13[31:0]                                                   ), //i
-    .io_inputs_2_payload_fragment_length       (_zz_14[5:0]                                                    ), //i
-    .io_inputs_2_payload_fragment_context      (_zz_15[3:0]                                                    ), //i
-    .io_inputs_3_valid                         (_zz_30                                                         ), //i
+    .io_inputs_2_payload_fragment_address      (_zz_23[31:0]                                                   ), //i
+    .io_inputs_2_payload_fragment_length       (_zz_24[5:0]                                                    ), //i
+    .io_inputs_2_payload_fragment_context      (_zz_25[3:0]                                                    ), //i
+    .io_inputs_3_valid                         (_zz_20                                                         ), //i
     .io_inputs_3_ready                         (exclusiveReadArbiter_io_inputs_3_ready                         ), //o
     .io_inputs_3_payload_last                  (_zz_76                                                         ), //i
     .io_inputs_3_payload_fragment_source       (_zz_77[2:0]                                                    ), //i
     .io_inputs_3_payload_fragment_opcode       (_zz_78                                                         ), //i
     .io_inputs_3_payload_fragment_exclusive    (_zz_79                                                         ), //i
-    .io_inputs_3_payload_fragment_address      (_zz_23[31:0]                                                   ), //i
-    .io_inputs_3_payload_fragment_length       (_zz_24[5:0]                                                    ), //i
-    .io_inputs_3_payload_fragment_context      (_zz_25[3:0]                                                    ), //i
+    .io_inputs_3_payload_fragment_address      (_zz_13[31:0]                                                   ), //i
+    .io_inputs_3_payload_fragment_length       (_zz_14[5:0]                                                    ), //i
+    .io_inputs_3_payload_fragment_context      (_zz_15[3:0]                                                    ), //i
     .io_output_valid                           (exclusiveReadArbiter_io_output_valid                           ), //o
     .io_output_ready                           (cmdArbiter_io_inputs_0_ready                                   ), //i
     .io_output_payload_last                    (exclusiveReadArbiter_io_output_payload_last                    ), //o
@@ -15850,7 +15850,7 @@ module BmbExclusiveMonitor (
   assign inputAddressLow = io_input_cmd_payload_fragment_address[11 : 0];
   assign inputAddressLowEnd = (inputAddressLow + _zz_95);
   assign _zz_7 = (((_zz_3[11 : 0] <= inputAddressLowEnd) && (inputAddressLow <= _zz_6)) && (_zz_96 == _zz_97));
-  assign _zz_8 = (io_input_cmd_payload_fragment_source == 3'b001);
+  assign _zz_8 = (io_input_cmd_payload_fragment_source == 3'b010);
   assign _zz_9 = (_zz_2 != `BmbExclusiveMonitorState_defaultEncoding_IDLE);
   always @ (*) begin
     _zz_10 = 1'b0;
@@ -15864,7 +15864,7 @@ module BmbExclusiveMonitor (
   end
 
   assign _zz_17 = (((_zz_13[11 : 0] <= inputAddressLowEnd) && (inputAddressLow <= _zz_16)) && (_zz_98 == _zz_99));
-  assign _zz_18 = (io_input_cmd_payload_fragment_source == 3'b010);
+  assign _zz_18 = (io_input_cmd_payload_fragment_source == 3'b100);
   assign _zz_19 = (_zz_12 != `BmbExclusiveMonitorState_defaultEncoding_IDLE);
   always @ (*) begin
     _zz_20 = 1'b0;
@@ -15892,7 +15892,7 @@ module BmbExclusiveMonitor (
   end
 
   assign _zz_37 = (((_zz_33[11 : 0] <= inputAddressLowEnd) && (inputAddressLow <= _zz_36)) && (_zz_102 == _zz_103));
-  assign _zz_38 = (io_input_cmd_payload_fragment_source == 3'b100);
+  assign _zz_38 = (io_input_cmd_payload_fragment_source == 3'b001);
   assign _zz_39 = (_zz_32 != `BmbExclusiveMonitorState_defaultEncoding_IDLE);
   always @ (*) begin
     _zz_40 = 1'b0;
@@ -15906,7 +15906,7 @@ module BmbExclusiveMonitor (
   end
 
   assign _zz_64 = 1'b1;
-  assign _zz_65 = 3'b100;
+  assign _zz_65 = 3'b010;
   assign _zz_66 = 1'b0;
   assign _zz_67 = 1'b1;
   assign _zz_68 = 1'b1;
@@ -15914,14 +15914,14 @@ module BmbExclusiveMonitor (
   assign _zz_70 = 1'b0;
   assign _zz_71 = 1'b1;
   assign _zz_72 = 1'b1;
-  assign _zz_73 = 3'b010;
+  assign _zz_73 = 3'b011;
   assign _zz_74 = 1'b0;
   assign _zz_75 = 1'b1;
   assign _zz_76 = 1'b1;
-  assign _zz_77 = 3'b011;
+  assign _zz_77 = 3'b100;
   assign _zz_78 = 1'b0;
   assign _zz_79 = 1'b1;
-  assign _zz_61 = (! ({(_zz_8 && _zz_9),{(_zz_38 && _zz_39),{(_zz_28 && _zz_29),(_zz_18 && _zz_19)}}} != 4'b0000));
+  assign _zz_61 = (! ({(_zz_18 && _zz_19),{(_zz_8 && _zz_9),{(_zz_28 && _zz_29),(_zz_38 && _zz_39)}}} != 4'b0000));
   assign io_input_cmd_ready = (_zz_62 && _zz_61);
   always @ (*) begin
     inputCmdHalted_valid = (io_input_cmd_valid && _zz_61);
@@ -15947,8 +15947,8 @@ module BmbExclusiveMonitor (
   assign inputCmdHalted_payload_fragment_mask = io_input_cmd_payload_fragment_mask;
   assign inputCmdHalted_payload_fragment_context = io_input_cmd_payload_fragment_context;
   assign inputCmdHalted_ready = cmdArbiter_io_inputs_1_ready;
-  assign exclusiveSuccess = ({((_zz_31 && _zz_37) && _zz_38),{((_zz_1 && _zz_7) && _zz_8),{((_zz_21 && _zz_27) && _zz_28),((_zz_11 && _zz_17) && _zz_18)}}} != 4'b0000);
-  assign _zz_63 = (! ({((_zz_45[6] != _zz_46[6]) && (_zz_45[5 : 0] == _zz_46[5 : 0])),{((_zz_49[6] != _zz_50[6]) && (_zz_49[5 : 0] == _zz_50[5 : 0])),{((_zz_104 != _zz_105) && (_zz_106 == _zz_107)),{(_zz_108 && _zz_109),(_zz_110 && _zz_111)}}}} != 5'h0));
+  assign exclusiveSuccess = ({((_zz_21 && _zz_27) && _zz_28),{((_zz_1 && _zz_7) && _zz_8),{((_zz_11 && _zz_17) && _zz_18),((_zz_31 && _zz_37) && _zz_38)}}} != 4'b0000);
+  assign _zz_63 = (! ({((_zz_57[6] != _zz_58[6]) && (_zz_57[5 : 0] == _zz_58[5 : 0])),{((_zz_45[6] != _zz_46[6]) && (_zz_45[5 : 0] == _zz_46[5 : 0])),{((_zz_104 != _zz_105) && (_zz_106 == _zz_107)),{(_zz_108 && _zz_109),(_zz_110 && _zz_111)}}}} != 5'h0));
   assign _zz_80 = (io_output_cmd_ready && _zz_63);
   assign io_output_cmd_valid = (cmdArbiter_io_output_valid && _zz_63);
   assign io_output_cmd_payload_last = cmdArbiter_io_output_payload_last;
@@ -16037,7 +16037,7 @@ module BmbExclusiveMonitor (
           end
         end
         `BmbExclusiveMonitorState_defaultEncoding_EMIT : begin
-          if(exclusiveReadArbiter_io_inputs_1_ready)begin
+          if(exclusiveReadArbiter_io_inputs_0_ready)begin
             _zz_2 <= `BmbExclusiveMonitorState_defaultEncoding_IDLE;
           end
         end
@@ -16067,7 +16067,7 @@ module BmbExclusiveMonitor (
           end
         end
         `BmbExclusiveMonitorState_defaultEncoding_EMIT : begin
-          if(exclusiveReadArbiter_io_inputs_2_ready)begin
+          if(exclusiveReadArbiter_io_inputs_3_ready)begin
             _zz_12 <= `BmbExclusiveMonitorState_defaultEncoding_IDLE;
           end
         end
@@ -16097,7 +16097,7 @@ module BmbExclusiveMonitor (
           end
         end
         `BmbExclusiveMonitorState_defaultEncoding_EMIT : begin
-          if(exclusiveReadArbiter_io_inputs_3_ready)begin
+          if(exclusiveReadArbiter_io_inputs_2_ready)begin
             _zz_22 <= `BmbExclusiveMonitorState_defaultEncoding_IDLE;
           end
         end
@@ -16127,7 +16127,7 @@ module BmbExclusiveMonitor (
           end
         end
         `BmbExclusiveMonitorState_defaultEncoding_EMIT : begin
-          if(exclusiveReadArbiter_io_inputs_0_ready)begin
+          if(exclusiveReadArbiter_io_inputs_1_ready)begin
             _zz_32 <= `BmbExclusiveMonitorState_defaultEncoding_IDLE;
           end
         end
