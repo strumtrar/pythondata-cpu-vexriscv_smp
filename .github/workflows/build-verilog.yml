@@ -1,0 +1,67 @@
+# action copied from https://github.com/lschuermann/litex-vexriscv-custom
+name: build-verilog
+
+# Controls when the action will run.
+on:
+  # Trigger on push or pull request events
+  push:
+    branches: [ ]
+  pull_request:
+    branches: [ ]
+
+  # Support running this workflow manually
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Setup Scala
+        uses: olafurpg/setup-scala@v11
+        with:
+          java-version: "adopt@1.8"
+
+      - name: Patch, locally build and publish the VexRiscv library
+        run: |
+          pushd pythondata_cpu_vexriscv_smp/verilog/ext/VexRiscv
+          sbt clean compile publishLocal
+          popd
+
+      - name: Build VexRiscv cores
+        run: make -C pythondata_cpu_vexriscv_smp/verilog
+
+      - name: Prepare potential release tarball
+        run: |
+          # Remove any build artificats from sbt
+          rm -rf pythondata_cpu_vexriscv_smp/verilog/ext/VexRiscv/target
+          rm -rf pythondata_cpu_vexriscv_smp/verilog/ext/VexRiscv/project/{project,target}
+          rm -rf pythondata_cpu_vexriscv_smp/verilog/target
+          rm -rf pythondata_cpu_vexriscv_smp/verilog/project/{project,target}
+
+          # VexRiscv writes the current timestamp into the generated
+          # output, which breaks reproducability. Remove it.
+          find . -iname '*.v' -execdir sed '/^\/\/ Date      :/d' -i {} \;
+
+          # The output must be a single file, to allow generating &
+          # verifying the fixed output hash. Therefore, compress as
+          # .tar.gz
+          #
+          # This also removes metadata such as the username or the file
+          # creation timestamp
+          tar \
+            --sort=name \
+            --owner=root:0 --group=root:0 \
+            --mtime='UTC 2020-01-01' \
+            --transform 's|^|pythondata_cpu_vexriscv_smp/|' \
+            -zcvf /tmp/generated.tar.gz .
+
+      - name: Upload potential release tarball
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated.tar.gz
+          path: /tmp/generated.tar.gz
