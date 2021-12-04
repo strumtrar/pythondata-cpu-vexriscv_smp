@@ -62,3 +62,12 @@ jobs:
         with:
           name: generated.tar.gz
           path: /tmp/generated.tar.gz
+          
+      - name: Update autobuilder release
+        uses: eine/tip@master
+        with:
+          tag: autobuilder
+          rm: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: /tmp/generated.tar.gz
+      
