@@ -32,9 +32,6 @@ jobs:
           sbt clean compile publishLocal
           popd
 
-      - name: Build VexRiscv cores
-        run: make -C pythondata_cpu_vexriscv_smp/verilog
-
       - name: Prepare potential release tarball
         run: |
           # Remove any build artificats from sbt
