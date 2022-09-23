@@ -60,8 +60,8 @@ jobs:
       - name: Upload potential release tarball
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ github.run_attempt }}-generated.tar.gz
-          path: /tmp/${{ github.run_attempt }}-generated.tar.gz
+          name: generated.tar.gz
+          path: /tmp/generated.tar.gz
           
       - name: Update autobuilder release
         uses: pyTooling/Actions/releaser@main
@@ -69,5 +69,5 @@ jobs:
           tag: autobuilder
           rm: true
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: /tmp/${{ github.run_attempt }}-generated.tar.gz
+          files: /tmp/generated.tar.gz
       
