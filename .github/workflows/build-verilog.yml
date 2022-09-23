@@ -69,5 +69,5 @@ jobs:
           tag: autobuilder
           rm: true
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: /tmp/${{ githu.run_attempt }}-generated.tar.gz
+          files: /tmp/${{ github.run_attempt }}-generated.tar.gz
       
